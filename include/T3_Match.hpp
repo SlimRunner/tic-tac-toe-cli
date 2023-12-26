@@ -4,7 +4,7 @@
 #include "T3_Board.hpp"
 
 namespace t3g {
-///< summary>Uses a board of Tic Tac Toe and adds rules to it.</summary>
+/// @brief Uses a board of Tic Tac Toe and adds rules to it.
 class T3_Match : public t3g::T3_Board {
 public:
   class Ex_invalid_move {};

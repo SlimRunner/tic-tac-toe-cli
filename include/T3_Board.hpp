@@ -26,7 +26,7 @@ enum class T3_board_state {
   O_WIN_BOARD = 4
 };
 
-///< summary>Manages a board of Tic Tac Toe</summary>
+/// @brief Manages a board of Tic Tac Toe
 class T3_Board {
 public: //---------------- P U B L I C ----------------//
   /***** EXCEPTION HANDLING *****/

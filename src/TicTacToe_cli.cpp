@@ -346,10 +346,12 @@ t3g::cell_loc tic::TicTacToe_cli::getSerialFromKeypad(char inCharacter) const {
   }
 }
 
-///<summary>Shows a prompt to the user, accepts a char input, and then returns the character to the caller.</summary>
-///<param name = "message">String literal that will be shown before requesting the input.</param>
-///<param name = "makeUpper">Determines if the output charater is converted upper case.</param>
-///<returns>Returns the character value entered by user.</returns>
+/// @brief Shows a prompt to the user, accepts a char input, and then returns
+/// the character to the caller.
+/// @param message String literal that will be shown before requesting the
+/// input.
+/// @param makeUpper Determines if the output charater is converted upper case.
+/// @return Returns the character value entered by user.
 static char prompt_getChar(const char *message, bool makeUpper) {
   std::string inStr;
 
