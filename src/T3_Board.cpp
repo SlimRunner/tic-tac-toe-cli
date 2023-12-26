@@ -175,7 +175,7 @@ t3g::T3_board_state t3g::T3_Board::determine_board_state(cell_loc x_loc, cell_lo
 {
 	T3_board_state retVal;
 
-	for (int i = 0; i < BOARD_SIZE; i++)
+	for (size_t i = 0; i < BOARD_SIZE; i++)
 		m_cond_board[i] = t3g::T3_cell_condition::NORMAL;
 
 	retVal = determine_board_state();
@@ -206,7 +206,7 @@ bool t3g::T3_Board::is_win_state(size_t bit_field)
 
 	for (size_t i = 0; i < ARR_LEN; ++i)
 	{
-		if WIN_MASK(bit_field, ws_array[i])
+		if WIN_MASK(bit_field, static_cast<size_t>(ws_array[i]))
 		{
 			switch (ws_array[i])
 			{

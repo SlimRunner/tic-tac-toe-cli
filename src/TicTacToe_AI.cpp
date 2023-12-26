@@ -39,8 +39,8 @@ tic::TicTacToe_AI::~TicTacToe_AI()
 
 t3g::cell_loc tic::TicTacToe_AI::get_move(const t3g::T3_Match & currMatch) const
 {
-	t3g::cell_loc edge_start = rand_select(1, 3, 5, 7);
-	t3g::cell_loc corner_start = rand_select(0, 2, 6, 8);
+	t3g::cell_loc edge_start = rand_select(1U, 3U, 5U, 7U);
+	t3g::cell_loc corner_start = rand_select(0U, 2U, 6U, 8U);
 	const t3g::cell_loc CENTER_START = 4U;
 	t3g::cell_loc aiSel;
 	

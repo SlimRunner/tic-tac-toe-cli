@@ -212,9 +212,9 @@ t3g::T3_cell_state tic::TicTacToe_cli::chooseSym_prompt(const char * message)
 
 void tic::TicTacToe_cli::printBoard()
 {
-	for (int y = 0; y < t3g::BOARD_SIDES; ++y)
+	for (size_t y = 0; y < t3g::BOARD_SIDES; ++y)
 	{
-		for (int x = 0; x < t3g::BOARD_SIDES; ++x)
+		for (size_t x = 0; x < t3g::BOARD_SIDES; ++x)
 		{
 			std::cout << getSymbol(m_thisMatch.get_cell_state(x, y)) << "\t";
 		}
@@ -360,11 +360,10 @@ t3g::cell_loc tic::TicTacToe_cli::getSerialFromKeypad(char inCharacter) const
 static char prompt_getChar(const char * message, bool makeUpper)
 {
 	std::string inStr;
-	bool firstLoop = true;
 
 	while ((std::cout << message) //return is irrelevant, it's here to loop the message
-		&& !(std::getline(std::cin, inStr)) //return is null when input is not valid
-		|| (inStr.length() != 1))
+		&& (!std::getline(std::cin, inStr) //return is null when input is not valid
+		|| (inStr.length() != 1)))
 	{
 		std::cout << "Not a valid character input." << std::endl;
 		if (std::cin.eof()) std::cin.clear(); //clears error if user enters ^Z(EOF)
