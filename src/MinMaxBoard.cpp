@@ -109,7 +109,9 @@ t3g::cell_loc mmx::MinMaxBoard::rand_cell_query(Mmb_States state,
 
   // makes sure cell_range has data, otherwise return an error value
   if (!cell_range.empty()) {
-    std::default_random_engine def_gene(static_cast<unsigned int>(time(NULL)));
+    // generator must be static due to issues with sample size
+    // see https://stackoverflow.com/q/21843172
+    static std::default_random_engine def_gene(static_cast<unsigned int>(time(NULL)));
     std::uniform_int_distribution<size_t> uni_dist(0U, cell_range.size() - 1);
 
     return cell_range[uni_dist(def_gene)];

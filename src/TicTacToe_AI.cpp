@@ -128,16 +128,21 @@ tic::TicTacToe_AI::get_move(const t3g::T3_Match &currMatch) const {
 
 template <class T, class... Args>
 T rand_select(T first, Args... args) noexcept {
-  std::default_random_engine def_gene(static_cast<unsigned int>(time(NULL)));
+  // generator must be static due to issues with sample size
+  // see https://stackoverflow.com/q/21843172
+  static std::default_random_engine def_gene(static_cast<unsigned int>(time(NULL)));
   std::uniform_int_distribution<size_t> uni_dist(0U, sizeof...(args)); //
 
   T arr[sizeof...(args) + 1] = {first, args...};
+  size_t index = uni_dist(def_gene);
 
-  return arr[uni_dist(def_gene)];
+  return arr[index];
 }
 
 template <class T> T rand_ratio_pick(T in1, T in2, float ratio) {
-  std::default_random_engine def_gene(static_cast<unsigned int>(time(NULL)));
+  // generator must be static due to issues with sample size
+  // see https://stackoverflow.com/q/21843172
+  static std::default_random_engine def_gene(static_cast<unsigned int>(time(NULL)));
   std::uniform_int_distribution<size_t> uni_dist(
       0U, std::numeric_limits<size_t>::max());
 
