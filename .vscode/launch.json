@@ -8,7 +8,7 @@
         "name": "(gdb) Launch",
         "type": "cppdbg",
         "request": "launch",
-        "program": "${workspaceFolder}/build/apps/tictactoe_cli",
+        "program": "${workspaceFolder}/build/debug/app/tictactoe_cli",
         "args": [],
         "stopAtEntry": false,
         "cwd": "${workspaceFolder}",
